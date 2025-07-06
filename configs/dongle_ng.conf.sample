@@ -1,0 +1,34 @@
+; Sample configuration for chan-dongle-ng
+; Copy or rename this file to dongle_ng.conf and adjust the values
+; to match your environment.
+
+[global]
+; Incoming calls will be placed into this Asterisk context.
+context = dongle-incoming
+
+; Optionally limit the number of concurrent outgoing calls per device.
+;maxcall = 1
+
+; Directory where received SMS messages are stored.
+;smspooldir = /var/spool/dongle-ng
+
+; Map modem IMEI numbers to stable logical names. Each entry is
+; "IMEI:alias" and multiple entries are separated by commas.
+; This allows dongles to be identified consistently even when
+; they are plugged into different USB ports.
+imei_map = 123456789012345:modem1,234567890123456:modem2
+
+; --------------------------------------------------------------------
+; Individual modem sections referenced by the names above.
+; Adjust the tty device paths to match your system.
+
+[modem1]
+; Audio (voice) interface
+audio = /dev/ttyUSB1
+; Data/control interface
+data  = /dev/ttyUSB2
+
+[modem2]
+; Example second modem with different ports
+audio = /dev/ttyUSB3
+data  = /dev/ttyUSB4
