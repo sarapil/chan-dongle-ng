@@ -1,9 +1,14 @@
 MODULE=chan_dongle_ng.so
-SRC=chan_dongle_ng.c chan_dongle_ng_cli.c
+SRC=src/chan_dongle_ng.c
+OBJ=$(SRC:.c=.o)
 
-ASTCFLAGS=`asterisk -C | grep ^ASTCFLAGS= | cut -d= -f2`
-ASTLIBDIR=`asterisk -C | grep ^ASTLIBDIR= | cut -d= -f2`
+CFLAGS+=-Iinclude $(ASTCFLAGS)
+LDFLAGS+=$(ASTLDFLAGS)
 
-all:
-	gcc -fPIC -Wall -shared -o $(MODULE) $(SRC) $(ASTCFLAGS) -I/usr/include/asterisk -I.
-	mv $(MODULE) $(ASTLIBDIR)/modules/
+all: $(MODULE)
+
+$(MODULE): $(OBJ)
+	$(CC) -shared -o $@ $^ $(LDFLAGS)
+
+clean:
+	rm -f $(OBJ) $(MODULE)
