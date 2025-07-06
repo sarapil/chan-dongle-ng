@@ -1,0 +1,16 @@
+# Build artifacts
+*.o
+*.so
+
+# Build directory
+build/
+
+# Editor backup files
+*~
+.*.swp
+.*.swo
+.#*
+.DS_Store
+
+# Binaries built by Makefile
+chan-dongle-ng
