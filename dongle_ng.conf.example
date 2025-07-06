@@ -5,3 +5,4 @@ autostart=yes
 imei=123456789012345
 sim_number=01000000000
 alias=line-sales
+dev_path=/dev/ttyUSB0

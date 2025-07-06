@@ -5,5 +5,5 @@ ASTCFLAGS=`asterisk -C | grep ^ASTCFLAGS= | cut -d= -f2`
 ASTLIBDIR=`asterisk -C | grep ^ASTLIBDIR= | cut -d= -f2`
 
 all:
-	gcc -fPIC -Wall -shared -o $(MODULE) $(SRC) $(ASTCFLAGS) -I/usr/include/asterisk
+	gcc -fPIC -Wall -shared -o $(MODULE) $(SRC) $(ASTCFLAGS) -I/usr/include/asterisk -I.
 	mv $(MODULE) $(ASTLIBDIR)/modules/

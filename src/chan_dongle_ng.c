@@ -15,3 +15,6 @@ int unload_module(void)
 }
 
 AST_MODULE_INFO_STANDARD(ASTERISK_GPL_KEY, "Chan Dongle NG stub module");
+
+/* Required when building outside of the Asterisk tree */
+struct ast_module_info *AST_MODULE_SELF_SYM = &__mod_info;
