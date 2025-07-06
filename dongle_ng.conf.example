@@ -1,0 +1,7 @@
+[general]
+autostart=yes
+
+[line-sales]
+imei=123456789012345
+sim_number=01000000000
+alias=line-sales
