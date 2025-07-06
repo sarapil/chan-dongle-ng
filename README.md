@@ -37,17 +37,19 @@ Reload or restart Asterisk so the new module is loaded.
 
 ## Basic Configuration
 
-Edit or create `/etc/asterisk/dongle.conf` and define each connected modem. Example:
+Edit or create `/etc/asterisk/dongle_ng.conf` and define each connected modem. Example:
 
 ```ini
+
 [general]
-device=/dev/ttyUSB0
+autostart=yes
 
 [usb0]
 ; audio and data ports are detected automatically
 imei=123456789012345
 imsi=123456789012345
-``` 
+dev_path=/dev/ttyUSB0
+```
 
 Load the module by adding to `modules.conf`:
 
@@ -70,6 +72,20 @@ Incoming calls can be handled similarly:
 [dongle-in]
 exten => s,1,Answer()
  same => n,Dial(SIP/myphone)
+```
+
+## CLI Commands
+
+After the module is loaded you can inspect configured devices from the Asterisk CLI:
+
+```
+*CLI> dongle_ng show
+```
+
+To request a hard reset for a particular dongle use:
+
+```
+*CLI> dongle_ng reset <alias>
 ```
 
 ## Further Reading
