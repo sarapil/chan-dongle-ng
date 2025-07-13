@@ -92,4 +92,13 @@ To request a hard reset for a particular dongle use:
 
 ## Further Reading
 
-Refer to the comments in `dongle.conf` and `extensions.conf` for advanced options such as SMS handling, USSD, and audio settings. Additional documentation and support can be found in the project wiki.
+Refer to the `dongle_ng.conf.example` file and `extensions.conf` for advanced options such as SMS handling, USSD, and audio settings. Additional documentation and support can be found in the project wiki.
+
+## Asterisk 22 Compatibility
+
+This version of chan_dongle_ng has been updated to work with Asterisk 22 and later versions. Key compatibility updates include:
+
+- Updated configuration loading with proper error handling
+- Modernized module registration
+- Compatible with Asterisk 22 API changes
+- Proper include dependencies for newer Asterisk versions

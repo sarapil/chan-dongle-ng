@@ -1,3 +1,4 @@
+#include "asterisk.h"
 #include "asterisk/cli.h"
 #include "asterisk/logger.h"
 #include "chan_dongle_ng.h"
