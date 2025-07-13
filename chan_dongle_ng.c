@@ -1,3 +1,4 @@
+#include "asterisk.h"
 #include "asterisk/module.h"
 #include "asterisk/logger.h"
 #include "asterisk/config.h"
@@ -17,7 +18,7 @@ static int load_config(void) {
     AST_RWLIST_INIT(&g_device_list);
 
     cfg = ast_config_load("dongle_ng.conf", flags);
-    if (!cfg) {
+    if (!cfg || cfg == CONFIG_STATUS_FILEINVALID) {
         ast_log(LOG_ERROR, "Unable to load dongle_ng.conf\n");
         return -1;
     }
@@ -70,6 +71,7 @@ static int unload_module(void) {
 AST_MODULE_INFO_STANDARD_EXTENDED(
     .name = "chan_dongle_ng",
     .description = "New generation GSM/VoLTE channel driver",
+    .key = ASTERISK_GPL_KEY,
     .load = load_module,
     .unload = unload_module,
 );
