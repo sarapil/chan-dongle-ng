@@ -8,8 +8,8 @@ The goal of this project is to provide an easy way to interface consumer USB mod
 
 ## Prerequisites
 
-- Asterisk development headers (tested with Asterisk 16+)
-- `libusb-1.0` and its development files
+- Asterisk development headers (tested with Asterisk 22+)
+- `libusb-1.0` and its development files  
 - A C compiler (e.g., GCC) and standard build tools
 - USB modem(s) that expose an AT command interface
 
@@ -18,6 +18,8 @@ Ubuntu/Debian users can install the prerequisites with:
 ```bash
 sudo apt-get install build-essential libusb-1.0-0-dev asterisk asterisk-dev
 ```
+
+**Note:** For Asterisk 22, ensure you have the latest development headers installed. The module has been updated to use APIs compatible with Asterisk 22 and later versions.
 
 ## Building
 
@@ -90,4 +92,13 @@ To request a hard reset for a particular dongle use:
 
 ## Further Reading
 
-Refer to the comments in `dongle.conf` and `extensions.conf` for advanced options such as SMS handling, USSD, and audio settings. Additional documentation and support can be found in the project wiki.
+Refer to the `dongle_ng.conf.example` file and `extensions.conf` for advanced options such as SMS handling, USSD, and audio settings. Additional documentation and support can be found in the project wiki.
+
+## Asterisk 22 Compatibility
+
+This version of chan_dongle_ng has been updated to work with Asterisk 22 and later versions. Key compatibility updates include:
+
+- Updated configuration loading with proper error handling
+- Modernized module registration
+- Compatible with Asterisk 22 API changes
+- Proper include dependencies for newer Asterisk versions

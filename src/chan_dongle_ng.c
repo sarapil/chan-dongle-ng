@@ -1,5 +1,6 @@
 #include "asterisk.h"
 #include "asterisk/module.h"
+#include "asterisk/logger.h"
 #include "chan_dongle_ng.h"
 
 int load_module(void)
